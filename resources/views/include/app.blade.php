@@ -47,6 +47,11 @@
                         <a href="{{ route('shell') }}" class="p-3 text-decoration-none text-light"><i class="fa fa-code fa-fw"></i> SHELL</a>
                         <a href="{{ route('vps') }}" class="p-3 text-decoration-none text-light"><i class="fa fa-cloud fa-fw"></i> VPS</a>
                         <a href="{{ route('cpanel') }}" class="p-3 text-decoration-none text-light"><i class="fa fa-desktop fa-fw"></i> CPANEL</a>
+                        <a href="{{ route('website') }}" class="p-3 text-decoration-none text-light"><i class="fas fa-server"></i> WEBSITE</a>
+                        <a href="{{ route('website') }}" class="p-3 text-decoration-none text-light"><i class="far fa-envelope"></i> MAIL</a>
+                        <a href="{{ route('website') }}" class="p-3 text-decoration-none text-light"><i class="fas fa-database"></i> DATABASE</a>
+                        <a href="{{ route('website') }}" class="p-3 text-decoration-none text-light"><i class="fas fa-syringe"></i> SQL INJECTION</a>
+                        <a href="{{ route('website') }}" class="p-3 text-decoration-none text-light"><i class="fas fa-skull"></i> XSS </a>
                     </div>
                 </div>
             </nav>
