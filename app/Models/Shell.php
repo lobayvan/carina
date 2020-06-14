@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Shell extends Model
 {
-    protected $table = "shell";
+    protected $table = "shells";
     protected $fillable = [
     	'url',
         'server_info',

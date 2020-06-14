@@ -48,33 +48,33 @@ Route::get('/website/detail/{id}', 'websiteController@websiteview');
 Route::post('/website/detail/{id}', 'websiteController@websiteupdate');
 
 // Routes Mails
-Route::get('/mail', 'websiteController@websiteindex')->name('mail');
-Route::get('/mail/new', 'websiteController@websiteinput');
-Route::post('/mail/new', 'websiteController@websiteinputpost');
-Route::post('/mail/delete', 'websiteController@websitedelete');
-Route::get('/mail/detail/{id}', 'websiteController@websiteview');
-Route::post('/mail/detail/{id}', 'websiteController@websiteupdate');
+Route::get('/mail', 'mailController@websiteindex')->name('mail');
+Route::get('/mail/new', 'mailController@websiteinput');
+Route::post('/mail/new', 'mailController@websiteinputpost');
+Route::post('/mail/delete', 'mailController@websitedelete');
+Route::get('/mail/detail/{id}', 'mailController@websiteview');
+Route::post('/mail/detail/{id}', 'mailController@websiteupdate');
 
 // Routes Databases
-Route::get('/database', 'websiteController@websiteindex')->name('database');
-Route::get('/database/new', 'websiteController@websiteinput');
-Route::post('/database/new', 'websiteController@websiteinputpost');
-Route::post('/database/delete', 'websiteController@websitedelete');
-Route::get('/database/detail/{id}', 'websiteController@websiteview');
-Route::post('/database/detail/{id}', 'websiteController@websiteupdate');
+Route::get('/database', 'databaseController@websiteindex')->name('database');
+Route::get('/database/new', 'databaseController@websiteinput');
+Route::post('/database/new', 'databaseController@websiteinputpost');
+Route::post('/database/delete', 'databaseController@websitedelete');
+Route::get('/database/detail/{id}', 'databaseController@websiteview');
+Route::post('/database/detail/{id}', 'databaseController@websiteupdate');
 
 // SQL INJECTIONS
-Route::get('/sql-injection', 'websiteController@websiteindex')->name('sql-injection');
-Route::get('/sql-injection/new', 'websiteController@websiteinput');
-Route::post('/sql-injection/new', 'websiteController@websiteinputpost');
-Route::post('/sql-injection/delete', 'websiteController@websitedelete');
-Route::get('/sql-injection/detail/{id}', 'websiteController@websiteview');
-Route::post('/sql-injection/detail/{id}', 'websiteController@websiteupdate');
+Route::get('/sql-injection', 'sqlInjectionController@websiteindex')->name('sql-injection');
+Route::get('/sql-injection/new', 'sqlInjectionController@websiteinput');
+Route::post('/sql-injection/new', 'sqlInjectionController@websiteinputpost');
+Route::post('/sql-injection/delete', 'sqlInjectionController@websitedelete');
+Route::get('/sql-injection/detail/{id}', 'sqlInjectionController@websiteview');
+Route::post('/sql-injection/detail/{id}', 'sqlInjectionController@websiteupdate');
 
 // XSS
-Route::get('/xss', 'websiteController@websiteindex')->name('xss');
-Route::get('/xss/new', 'websiteController@websiteinput');
-Route::post('/xss/new', 'websiteController@websiteinputpost');
-Route::post('/xss/delete', 'websiteController@websitedelete');
-Route::get('/xss/detail/{id}', 'websiteController@websiteview');
-Route::post('/xss/detail/{id}', 'websiteController@websiteupdate');
+Route::get('/xss', 'xssController@websiteindex')->name('xss');
+Route::get('/xss/new', 'xssController@websiteinput');
+Route::post('/xss/new', 'xssController@websiteinputpost');
+Route::post('/xss/delete', 'xssController@websitedelete');
+Route::get('/xss/detail/{id}', 'xssController@websiteview');
+Route::post('/xss/detail/{id}', 'xssController@websiteupdate');

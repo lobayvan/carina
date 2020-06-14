@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mail extends Model
 {
-    protected $table = "shell";
+    protected $table = "mails";
     protected $fillable = [
-        'url',
-        'server_info',
+        'username',
+        'password',
+        'commentaire',
         'status'
     ];
 }

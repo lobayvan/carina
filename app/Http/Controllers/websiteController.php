@@ -10,27 +10,32 @@ class websiteController extends Controller
 {
     public function websiteindex(Request $request) {
         if (!empty($request->input('keyword'))) {
-            $data = \App\Models\Shell::where('url', 'like', "%".$request->input('keyword')."%")
-            ->orWhere('server_info', 'like', "%".$request->input('keyword')."%")
+            $data = \App\Models\Website::where('url', 'like', "%".$request->input('keyword')."%")
+            ->orWhere('username', 'like', "%".$request->input('keyword')."%")
+            ->orWhere('commentaire', 'like', "%".$request->input('keyword')."%")
             ->paginate(1000);
 
             return view('website.website', [
                 'data' => $data
             ]);
+
         } else {
             $data = \App\Models\Shell::orderBy('id', 'DESC')->paginate(10);
             if (count($data) > 0) {
+
                 return view('website.website', [
                     'data' => $data
                 ]);
+
             } else {
+
                 return redirect('/website/new');
             }
         }
     }
 
     public function websiteview($id) {
-        $data = \App\Models\Shell::where('id', Crypt::decryptString($id))->first();
+        $data = \App\Models\Website::where('id', Crypt::decryptString($id))->first();
         return view('website.website_detail', [
             'data' => $data
         ]);
@@ -45,18 +50,17 @@ class websiteController extends Controller
     }
 
     public function websiteinputpost(Request $request) {
-        date_default_timezone_set('Asia/Jakarta');
         $data = Helper::checkwebsite($request->url);
 
         if ($data == false) {
             return redirect('/website')->with(['alert' => 'Error!']);
         } else {
             if ($data['status'] == 'active') {
-                $act = \App\Models\Shell::insert([
+                $act = \App\Models\Website::insert([
                     'url' => $data['url'],
-                    'server_info' => $data['server_info'],
-                    'domain' => Helper::getDomain($request->url),
-                    'status' => $data['status'],
+                    'username' => $data['server_info'],
+                    'password' => Helper::getDomain($request->url),
+                    'commentaire' => $data['status'],
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ]);
@@ -70,35 +74,34 @@ class websiteController extends Controller
     }
 
     public function websiteupdate(Request $request) {
-        date_default_timezone_set('Asia/Jakarta');
-        $url = \App\Models\Shell::select('url')->where('id', Crypt::decryptString($request->id))->first();
+        $url = \App\Models\Website::select('url')->where('id', Crypt::decryptString($request->id))->first();
         $cek = Helper::checkShell($url->url);
         if ($cek == false) {
-            \App\Models\Shell::where('url', $url->url)->update([
+            \App\Models\Website::where('url', $url->url)->update([
                 'status' => 'inactive',
                 'updated_at' => date('Y-m-d H:i:s'),
             ]);
-            return redirect()->back()->with(['alert' => 'Recheck Shell Success!']);
+            return redirect()->back()->with(['alert' => 'Recheck Website Success!']);
         } else {
-            \App\Models\Shell::where('url', $url->url)->update([
+            \App\Models\Website::where('url', $url->url)->update([
                 'status' => 'active',
                 'updated_at' => date('Y-m-d H:i:s'),
             ]);
-            return redirect()->back()->with(['alert' => 'Recheck Shell Success!']);
+            return redirect()->back()->with(['alert' => 'Recheck Website Success!']);
         }
     }
 
     public function websitedelete(Request $request) {
-        $act = \App\Models\Shell::where('id', Crypt::decryptString($request->id))->delete();
+        $act = \App\Models\Website::where('id', Crypt::decryptString($request->id))->delete();
         if ($act) {
-            return redirect('/shell')->with(['alert' => 'Delete Shell Success!']);
+            return redirect('/shell')->with(['alert' => 'Delete Website Success!']);
         } else {
             return redirect('/shell')->with(['alert' => 'Error!']);
         }
     }
 
     public function websitecheckjq(Request $request) {
-        $url = \App\Models\Shell::select('url', 'domain')->where('id', $request->id)->first();
+        $url = \App\Models\Website::select('url', 'domain')->where('id', $request->id)->first();
         $cek = Helper::checkShell($url->url);
 
         if ($cek == false) {

@@ -13,7 +13,7 @@ class CreateMail extends Migration
      */
     public function up()
     {
-        Schema::create('mail', function (Blueprint $table) {
+        Schema::create('mails', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('url', 1000);
             $table->string('username', 155);

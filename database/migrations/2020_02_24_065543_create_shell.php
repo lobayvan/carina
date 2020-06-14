@@ -13,7 +13,7 @@ class CreateShell extends Migration
      */
     public function up()
     {
-        Schema::create('shell', function (Blueprint $table) {
+        Schema::create('shells', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('url');
             $table->string('domain');

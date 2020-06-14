@@ -13,14 +13,13 @@ class CreateDatabase extends Migration
      */
     public function up()
     {
-        Schema::create('database', function (Blueprint $table) {
+        Schema::create('databases', function (Blueprint $table) {
             $table->bigIncrements('id');
-
             $table->string('type', 155);
             $table->string('url', 1000);
             $table->string('username', 155);
             $table->string('password', 155);
-            $table->integer('port', 9000);
+            $table->integer('port');
             $table->boolean('connexion_externe');
             $table->text('commentaire')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('inactive');

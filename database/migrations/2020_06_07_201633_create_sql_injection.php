@@ -13,7 +13,7 @@ class CreateSqlInjection extends Migration
      */
     public function up()
     {
-        Schema::create('sql_injection', function (Blueprint $table) {
+        Schema::create('sql_injections', function (Blueprint $table) {
             $table->bigIncrements('id');
 
             $table->string('domaine', 1000);

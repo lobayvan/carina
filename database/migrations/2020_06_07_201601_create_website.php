@@ -13,7 +13,7 @@ class CreateWebsite extends Migration
      */
     public function up()
     {
-        Schema::create('website', function (Blueprint $table) {
+        Schema::create('websites', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('url', 1000);
             $table->string('username', 155);

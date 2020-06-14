@@ -6,10 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class SqlInjection extends Model
 {
-    protected $table = "shell";
+    protected $table = "sql_injections";
     protected $fillable = [
-        'url',
-        'server_info',
+        'domaine',
+        'sql_map_cmd',
+        'commentaire',
         'status'
     ];
+
 }
