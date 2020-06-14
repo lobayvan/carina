@@ -10,7 +10,7 @@ class SqlInjection extends Model
     protected $fillable = [
         'domaine',
         'sql_map_cmd',
-        'commentaire',
+        'comment',
         'status'
     ];
 

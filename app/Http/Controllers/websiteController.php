@@ -20,7 +20,7 @@ class websiteController extends Controller
             ]);
 
         } else {
-            $data = \App\Models\Shell::orderBy('id', 'DESC')->paginate(10);
+            $data = \App\Models\Website::orderBy('id', 'DESC')->paginate(10);
             if (count($data) > 0) {
 
                 return view('website.website', [
@@ -50,25 +50,23 @@ class websiteController extends Controller
     }
 
     public function websiteinputpost(Request $request) {
-        $data = Helper::checkwebsite($request->url);
+        //make validation
 
-        if ($data == false) {
+        if (false) {
             return redirect('/website')->with(['alert' => 'Error!']);
         } else {
-            if ($data['status'] == 'active') {
-                $act = \App\Models\Website::insert([
-                    'url' => $data['url'],
-                    'username' => $data['server_info'],
-                    'password' => Helper::getDomain($request->url),
-                    'commentaire' => $data['status'],
-                    'created_at' => date('Y-m-d H:i:s'),
-                    'updated_at' => date('Y-m-d H:i:s'),
-                ]);
-                if ($act) {
-                    return redirect('/shell')->with(['alert' => 'Insert Shell Success!']);
-                } else {
-                    return redirect('/shell')->with(['alert' => 'Error!']);
-                }
+            $act = \App\Models\Website::insert([
+                'url' => $request->password,
+                'username' =>$request->password,
+                'password' => bcrypt($request->password),
+                'comment' =>$request->comment,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ]);
+            if ($act) {
+                return redirect('/website')->with(['alert' => 'Insert Shell Success!']);
+            } else {
+                return redirect('/website')->with(['alert' => 'Error!']);
             }
         }
     }
@@ -94,9 +92,9 @@ class websiteController extends Controller
     public function websitedelete(Request $request) {
         $act = \App\Models\Website::where('id', Crypt::decryptString($request->id))->delete();
         if ($act) {
-            return redirect('/shell')->with(['alert' => 'Delete Website Success!']);
+            return redirect('/website')->with(['alert' => 'Delete Website Success!']);
         } else {
-            return redirect('/shell')->with(['alert' => 'Error!']);
+            return redirect('/website')->with(['alert' => 'Error!']);
         }
     }
 

@@ -15,7 +15,7 @@ class Database extends Model
         'port',
         'server_info',
         'connexion_externe',
-        'commentaire',
+        'comment',
         'status'
     ];
 }

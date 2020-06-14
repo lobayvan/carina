@@ -18,7 +18,7 @@ class CreateWebsite extends Migration
             $table->string('url', 1000);
             $table->string('username', 155);
             $table->string('password', 155);
-            $table->text('commentaire')->nullable();
+            $table->text('comment')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('inactive');
             $table->timestamps();
         });
@@ -31,6 +31,6 @@ class CreateWebsite extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('website');
+        Schema::dropIfExists('websites');
     }
 }

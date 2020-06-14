@@ -18,7 +18,7 @@ class CreateFiles extends Migration
             $table->string('domaine', 1000);
             $table->string('type', 155);
             $table->string('path');
-            $table->text('commentaire')->nullable();
+            $table->text('comment')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('inactive');
             $table->timestamps();
         });

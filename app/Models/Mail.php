@@ -10,7 +10,7 @@ class Mail extends Model
     protected $fillable = [
         'username',
         'password',
-        'commentaire',
+        'comment',
         'status'
     ];
 }

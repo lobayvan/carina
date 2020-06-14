@@ -18,7 +18,7 @@ class CreateSqlInjection extends Migration
 
             $table->string('domaine', 1000);
             $table->text('sql_map_cmd');
-            $table->text('commentaire')->nullable();
+            $table->text('comment')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('inactive');
 
             $table->timestamps();
@@ -38,6 +38,6 @@ class CreateSqlInjection extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sql_injection');
+        Schema::dropIfExists('sql_injections');
     }
 }

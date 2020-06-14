@@ -11,7 +11,7 @@ class Website extends Model
         'url',
         'username',
         'password',
-        'commentaire',
+        'comment',
         'status'
     ];
 }

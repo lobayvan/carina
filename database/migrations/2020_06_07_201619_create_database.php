@@ -21,7 +21,7 @@ class CreateDatabase extends Migration
             $table->string('password', 155);
             $table->integer('port');
             $table->boolean('connexion_externe');
-            $table->text('commentaire')->nullable();
+            $table->text('comment')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('inactive');
 
             $table->timestamps();
@@ -35,6 +35,6 @@ class CreateDatabase extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('database');
+        Schema::dropIfExists('databases');
     }
 }

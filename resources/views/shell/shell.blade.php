@@ -3,7 +3,7 @@
 @section('content')
     <div class="container py5">
         <h6 style="font-size: 10pt" class="mb-4">
-            <a href="{{ route('home') }}" class="text-decoration-none">Home</a> > 
+            <a href="{{ route('home') }}" class="text-decoration-none">Home</a> >
             Shells
         </h6>
         <div class="ht-tm-cat">
@@ -63,10 +63,10 @@
                                     <button class="btn btn-outline-primary btn-sm" title="Recheck Shell"  onclick="return refresh_shell({{$d->id}})"><span class="fa fa-refresh fa-fw"></span></button>
                                     <a href="{{ $d->url }}" class="btn btn-outline-primary btn-sm" title="Go to Shell" target="_blank"><span class="fa fa-external-link fa-fw"></span></a>
                                     <form method="POST" action="{{ route('shell') }}/delete" class="float-right">
-                                    @csrf
-                                    <input type="hidden" name="id" value="{{ Crypt::encryptString($d->id) }}">
-                                    <button class="btn btn-outline-primary btn-sm" title="Delete Shell" onclick="return confirm('Are you sure?')"><span class="fa fa-trash fa-fw"></span></button>
-                                </form>
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ Crypt::encryptString($d->id) }}">
+                                        <button class="btn btn-outline-primary btn-sm" title="Delete Shell" onclick="return confirm('Are you sure?')"><span class="fa fa-trash fa-fw"></span></button>
+                                    </form>
                             </td>
                         </tr>
                         @endforeach

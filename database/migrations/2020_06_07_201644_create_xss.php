@@ -17,7 +17,7 @@ class CreateXss extends Migration
             $table->bigIncrements('id');
             $table->string('domaine', 1000);
             $table->string('url', 1000);
-            $table->text('commentaire')->nullable();
+            $table->text('comment')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('inactive');
             $table->timestamps();
         });

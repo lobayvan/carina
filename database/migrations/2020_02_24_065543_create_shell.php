@@ -30,6 +30,6 @@ class CreateShell extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shell');
+        Schema::dropIfExists('shells');
     }
 }
