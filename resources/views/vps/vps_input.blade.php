@@ -19,7 +19,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <label>IP <font color="red">*</font></label>
-                                    <input type="text" class="form-control" name="ip" placeholder="103.129.221.24" required>
+                                    <input type="text" class="form-control" name="ip" placeholder="8.8.8.8" required>
                                 </div>
                                 <div class="form-group">
                                     <label>PORT <font color="red">*</font></label>
@@ -27,11 +27,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label>User <font color="red">*</font></label>
-                                    <input type="text" class="form-control" name="user" placeholder="abay" required>
+                                    <input type="text" class="form-control" name="user" placeholder="josueromba" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Password <font color="red">*</font></label>
-                                    <input type="text" class="form-control" name="password" placeholder="bayabayy" required>
+                                    <input type="text" class="form-control" name="password" placeholder="password" required>
                                 </div>
                                 <div class="form-group">
                                     <button class="btn btn-outline-primary btn-sm">SUBMIT</button>

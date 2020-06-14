@@ -63,8 +63,10 @@
 
     <!-- Footer -->
     <footer class="text-muted mt-4 footer">
-      <div class="text-center py-3">Made with <i class="fa fa-heart"></i> by <a href="https://dev.codelatte.net" target="_blank" alt="Codelatte"> Codelatte Dev</a>.
+      @if(1 == 1)
+      <div class="text-center py-3">Made by  <a href="#!">Yvan <strong style="font-weight: 900">LOBA</strong >  & Josué <strong style="font-weight: 900">ROMBA</strong></a>
       </div>
+      @endif
     </footer>
 
     <!-- Javascripts -->

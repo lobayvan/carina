@@ -19,7 +19,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <label>URL <font color="red">*</font></label>
-                                    <input type="text" class="form-control" name="url" placeholder="https://abaykan.com/images/upload/shell.php" required>
+                                    <input type="text" class="form-control" name="url" placeholder=" https://exemple-domaine.ci/images/upload/shell.php" required>
                                     <small class="form-text text-muted">For use this fiture, you should use <a href="{{ route('shell') }}/source" target="_blank">custom shell script</a>.</small>
                                 </div>
                                 <div class="form-group">

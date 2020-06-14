@@ -21,22 +21,52 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <th>Shell Backdoor</th>
+                                <th>SHELL</th>
                                 <th>{{ $data['shell_count_active'] }}</th>
                                 <th>{{ $data['shell_count_inactive'] }}</th>
                                 <th>{{ $data['shell_count'] }}</th>
                             </tr>
                             <tr>
-                                <th>Virtual Private Server</th>
+                                <th>VPS</th>
                                 <th>{{ $data['vps_count_active'] }}</th>
                                 <th>{{ $data['vps_count_inactive'] }}</th>
                                 <th>{{ $data['vps_count'] }}</th>
                             </tr>
                             <tr>
-                                <th>cPanel</th>
+                                <th>CPANEL</th>
                                 <th>{{ $data['cpanel_count_active'] }}</th>
                                 <th>{{ $data['cpanel_count_inactive'] }}</th>
                                 <th>{{ $data['cpanel_count'] }}</th>
+                            </tr>
+                            <tr>
+                                <th>WEBSITE</th>
+                                <th>{{ $data['website_count_active'] }}</th>
+                                <th>{{ $data['website_count_inactive'] }}</th>
+                                <th>{{ $data['website_count'] }}</th>
+                            </tr>
+                            <tr>
+                                <th>MAIL</th>
+                                <th>{{ $data['mail_count_active'] }}</th>
+                                <th>{{ $data['mail_count_inactive'] }}</th>
+                                <th>{{ $data['mail_count'] }}</th>
+                            </tr>
+                            <tr>
+                                <th>DATABASE</th>
+                                <th>{{ $data['database_count_active'] }}</th>
+                                <th>{{ $data['database_count_inactive'] }}</th>
+                                <th>{{ $data['database_count'] }}</th>
+                            </tr>
+                            <tr>
+                                <th>SQL INJECTION</th>
+                                <th>{{ $data['sql_injection_count_active'] }}</th>
+                                <th>{{ $data['sql_injection_count_inactive'] }}</th>
+                                <th>{{ $data['sql_injection_count'] }}</th>
+                            </tr>
+                            <tr>
+                                <th>XSS</th>
+                                <th>{{ $data['xss_count_active'] }}</th>
+                                <th>{{ $data['xss_count_inactive'] }}</th>
+                                <th>{{ $data['xss_count'] }}</th>
                             </tr>
                         </tbody>
                     </table>
@@ -93,7 +123,9 @@
                     cursor: 'pointer',
                     dataLabels: {
                         enabled: true,
-                        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        color: '#fff', 
+                        backgroundColor: 'transparent',
                     }
                 }
             },
@@ -109,6 +141,26 @@
                 }, {
                     name: 'VPS',
                     y: {{ $data['vps_count'] }}
+                },
+                {
+                    name: 'WEBSITE',
+                    y: {{ $data['website_count'] }}
+                },
+                {
+                    name: ' MAIL',
+                    y: {{ $data['mail_count'] }}
+                },
+                {
+                    name: 'DATABASE',
+                    y: {{ $data['database_count'] }}
+                },
+                {
+                    name: 'SQL INJECTION',
+                    y: {{ $data['sql_injection_count'] }}
+                },
+                {
+                    name: 'XSS',
+                    y: {{ $data['xss_count'] }}
                 }]
             }]
         });
